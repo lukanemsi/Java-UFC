@@ -1,6 +1,6 @@
 package ge.tbc.java.homework;
 /** 
- * TASK 2
+ * TASK 2,3
  * **/
 public class Rectangle
 {
