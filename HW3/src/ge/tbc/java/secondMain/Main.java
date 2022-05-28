@@ -8,10 +8,10 @@ public class Main extends Rectangle
 	{
 		
 		Rectangle rec = new Rectangle();
-		//rec.area(); -> compile error because its other package and area is protected
+		//rec.area(); -> არ კომპილირდება რადგან Area protected არის და ვიმყოფებით სხვა პაკეტში
 		
 		
-		
+		// კომპილირდება რადგან Main კლასი Rectangle კლასის შთამომავალია
 		Main main = new Main();
 		main.setLength(12);
 		main.setWidth(12);
