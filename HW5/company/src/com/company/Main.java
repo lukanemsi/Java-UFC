@@ -29,8 +29,10 @@ public class Main{
         System.out.println("--------------");
 
 
-        Square square1 = new Square(10);
+		Square square1 = new Square(10);
         System.out.println(square1.area()); // 10 * 10 -> 100
+        System.out.println(square1.perimeter(square1.getLength(),square1.getWidth())); /* 40 ->
+                                                        პერიმეტრის გამოძახება სრულიად მშობელი კლასის მეთოდებით*/
         System.out.println("--------------");
 
 
