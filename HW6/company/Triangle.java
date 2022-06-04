@@ -81,7 +81,7 @@ public class Triangle extends  Figure
         return Math.sqrt(pHalf * (pHalf - a) * (pHalf - b) * (pHalf - c));
     }
 
-    //  ნაგულისხმებია a გვერძე დაშვებული სიმღლე
+    //  ნაგულისხმებია a გვერდზე დაშვებული სიმღლე
     public double area(double height)
     {
         return height * a / 2;
