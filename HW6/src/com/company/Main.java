@@ -11,6 +11,8 @@ public class Main{
         Rectangle r = new Rectangle(10,20);
         Figure r1 = new Rectangle(10,20);
         Triangle t = new Triangle(3,4,5);
+        Figure f = null;
+        System.out.println(compareFigure(f,r1));// false
         System.out.println(compareFigure(r,r1)); // true
         System.out.println(compareFigure(r1,t));// false
         System.out.println(compareFigure(r,t));// false
@@ -73,11 +75,16 @@ public class Main{
         System.out.println(rectangle.equals(new Rectangle(4,50))); // 200 = 200 -> true
         System.out.println(rectangle.equals(new Triangle(10,13,4)));// triangle != rectangle -> false
         System.out.println(rectangle.equals(null));//false
-
     }
 
     public static void printFigure(Figure figure)
     {
+        if(figure == null)
+        {
+            System.out.println("nullPointer input!");
+            return;
+        }
+
         System.out.println("Area: " + figure.area());
         System.out.println("Perimeter: " + figure.perimeter());
         if(figure instanceof Rectangle)
@@ -98,15 +105,11 @@ public class Main{
     }
     public static boolean compareFigure(Figure figure,Figure other)
     {
+        if(figure == null || other == null)
+            return false;
         if(figure.getClass() != other.getClass())
             return false;
         return figure.equals(other);
-
-        //instanceof_ის გამოყენებით
-        /*if(figure instanceof Rectangle)
-            return ((Rectangle) figure).equals((Rectangle) other);
-        else if(figure instanceof Triangle)
-            return ((Triangle) figure).equals((Triangle) other);*/
     }
 
 }

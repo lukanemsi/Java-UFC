@@ -32,7 +32,8 @@ public class Rectangle extends Figure
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if(!(o instanceof Rectangle))
             return false;
         return this.area() == ((Rectangle) o).area();

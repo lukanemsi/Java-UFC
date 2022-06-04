@@ -81,7 +81,7 @@ public class Triangle extends  Figure
         return Math.sqrt(pHalf * (pHalf - a) * (pHalf - b) * (pHalf - c));
     }
 
-    //  ნაგულისხმებია a გვერდზე დაშვებული სიმღლე
+    //  ნაგულისხმებია a გვერძე დაშვებული სიმღლე
     public double area(double height)
     {
         return height * a / 2;
@@ -93,6 +93,7 @@ public class Triangle extends  Figure
 
     @Override
     public boolean equals(Object o) {
+
         if(!(o instanceof  Triangle))
             return false;
         return this.perimeter() == ((Triangle) o).perimeter();
