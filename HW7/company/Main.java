@@ -1,8 +1,6 @@
 package com.company;
 
 
-import com.sun.security.jgss.GSSUtil;
-import org.w3c.dom.css.Rect;
 
 public class Main{
     /** Rectangle  და Triangle კლასების კონსტრუქტორებიდან შეზღუდვები მოვსენი რადგან
