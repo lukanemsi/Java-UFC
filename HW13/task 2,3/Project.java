@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 public class Project {
     public static void main(String[] args)
     {
-        String text = "luka \n лука\nლუკა";
+        String text = "luka" + System.getProperty("line.separator") + " лука" + System.getProperty("line.separator") + "  ლუკა";
         String encoding = "UTF-8";
         OutputStream os;
         try
