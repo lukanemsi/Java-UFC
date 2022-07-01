@@ -24,7 +24,7 @@ public class Main {
     }
     private static void checkNumber(String number)
     {
-        Pattern pattern = Pattern.compile("5[0-9]{2}-[0-9]{2}-[0-9]{2}");
+        Pattern pattern = Pattern.compile("5[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}");
         Matcher matcher = pattern.matcher(number);
         if(matcher.find(0))
             System.out.println("matches!");
