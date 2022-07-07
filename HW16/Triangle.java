@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Triangle extends Figure
 {
     private final double a;
@@ -41,5 +43,18 @@ public class Triangle extends Figure
 
     public double getC() {
         return c;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.a, a) == 0 && Double.compare(triangle.b, b) == 0 && Double.compare(triangle.c, c) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Double.hashCode(a) + Double.hashCode(b) + Double.hashCode(c);
     }
 }
