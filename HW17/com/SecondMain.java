@@ -19,7 +19,8 @@ public class SecondMain {
         var circleArrayList = circleContainers.getFigureList();
         var circleTreeSet = circleContainers.getFigureTreeSet();
         var circleTreeMap = circleContainers.getFigureMapToLines();
-
+		int line = getMaximumFiguresLine(circleTreeMap);
+		
         //Triangles
         var triangleArrayList = triangleContainers.getFigureList();
         var triangleTreeSet = triangleContainers.getFigureTreeSet();
