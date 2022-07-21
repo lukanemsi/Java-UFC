@@ -44,15 +44,25 @@ public class ObjectToCustomStringConverter
             {
                 double max = validator.max();
                 double min = validator.min();
-
+                fi.setAccessible(true);
+                double value = 0;
                 try {
-                    fi.setAccessible(true);
-                    double value = (double)fi.get(object);
-                    if(value > max || value < min)
-                        throw new CustomStringSerializationException("Field is not Valid");
+                    value = (double) fi.get(object);
+                } catch (IllegalAccessException ignored) {}
 
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                if(max != -1 && min != -1)
+                {
+                    if (value > max || value < min)
+                        throw new CustomStringSerializationException("Field is not Valid");
+                }
+                else if(max == -1)
+                {
+                    if(value < min)
+                        throw new CustomStringSerializationException("Field is not Valid");
+                }
+                else {
+                    if(value > max)
+                        throw new CustomStringSerializationException("Field is not Valid");
                 }
             }
             if(!Objects.isNull(fi.getAnnotation(SkipSerialization.class)))
