@@ -14,6 +14,7 @@ public class DaemonThread implements Runnable
         {
             System.out.println(LocalTime.now() + state);
             try {
+				// 2000 mills cota iyo
                 Thread.sleep(20);
             } catch (InterruptedException e)
             {
