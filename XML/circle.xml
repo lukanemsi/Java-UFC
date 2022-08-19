@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Figure>
+  <Circle id="0">
+    <radius>10</radius>
+  </Circle>
+  <Circle id="1">
+    <radius>20</radius>
+  </Circle>
+  <Circle id="2">
+    <radius>30</radius>
+  </Circle>
+  <Circle id="3">
+    <radius>40</radius>
+  </Circle>
+</Figure>

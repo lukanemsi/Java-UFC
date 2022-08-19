@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Figure>
+  <Rectangle id="0">
+    <Length>10</Length>
+    <Width>20</Width>
+  </Rectangle>
+  <Rectangle id="1">
+    <Length>30</Length>
+    <Width>40</Width>
+  </Rectangle>
+  <Rectangle id="2">
+    <Length>50</Length>
+    <Width>60</Width>
+  </Rectangle>
+</Figure>
