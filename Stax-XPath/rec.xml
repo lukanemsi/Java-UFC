@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RectangleList>
+  <Rectangle id="0">
+    <Width>8.891572213066855</Width>
+    <Length>2.057130380849458</Length>
+    <Perimeter>21.897405187832625</Perimeter>
+  </Rectangle>
+  <Rectangle id="1">
+    <Width>6.057924405858358</Width>
+    <Length>10.868469177043552</Length>
+    <Perimeter>33.85278716580382</Perimeter>
+  </Rectangle>
+  <Rectangle id="2">
+    <Width>5.725739729897041</Width>
+    <Length>2.835847771752107</Length>
+    <Perimeter>17.123175003298297</Perimeter>
+  </Rectangle>
+  <Rectangle id="3">
+    <Width>2.6118105790579227</Width>
+    <Length>2.746706020136296</Length>
+    <Perimeter>10.717033198388437</Perimeter>
+  </Rectangle>
+  <Rectangle id="4">
+    <Width>3.6531986238064587</Width>
+    <Length>5.05527655354539</Length>
+    <Perimeter>17.416950354703697</Perimeter>
+  </Rectangle>
+  <Rectangle id="5">
+    <Width>9.817003188939287</Width>
+    <Length>3.5502207804146293</Length>
+    <Perimeter>26.73444793870783</Perimeter>
+  </Rectangle>
+  <Rectangle id="6">
+    <Width>8.028136322058234</Width>
+    <Length>8.040719122596116</Length>
+    <Perimeter>32.1377108893087</Perimeter>
+  </Rectangle>
+  <Rectangle id="7">
+    <Width>4.5163196832950625</Width>
+    <Length>8.967696771426866</Length>
+    <Perimeter>26.968032909443856</Perimeter>
+  </Rectangle>
+  <Rectangle id="8">
+    <Width>9.1193343381279</Width>
+    <Length>2.6773431924513584</Length>
+    <Perimeter>23.593355061158515</Perimeter>
+  </Rectangle>
+  <Rectangle id="9">
+    <Width>5.156802479005925</Width>
+    <Length>8.546277881700831</Length>
+    <Perimeter>27.406160721413514</Perimeter>
+  </Rectangle>
+</RectangleList>
