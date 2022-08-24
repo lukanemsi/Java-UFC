@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TriangleList>
+    <Triangle>
+        <a>10</a>
+        <b>20</b>
+        <c>29</c>
+    </Triangle>
+    <Triangle>
+        <a>10</a>
+        <b>20</b>
+        <c>29</c>
+    </Triangle>
+    <Triangle>
+        <a>8</a>
+        <b>15</b>
+        <c>17</c>
+    </Triangle>
+    <Triangle>
+        <a>100</a>
+        <b>200</b>
+        <c>299</c>
+    </Triangle>
+    <Triangle>
+        <a>100</a>
+        <b>200</b>
+        <c>299</c>
+    </Triangle>
+</TriangleList>
