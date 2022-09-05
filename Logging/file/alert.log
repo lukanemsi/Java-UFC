@@ -1,0 +1,4 @@
+2022-09-05 14:07:04.448 ERROR main Main faa07df2-3cf3-4368-83b4-62bbd1a239dd methodName=generateRectangleXML {{{ Jaxb Error }}} 
+2022-09-05 14:07:20.693 ERROR main Main 8524dd4b-88c5-4dcc-9fd0-0e881ee227c5 methodName=generateRectangleXML {{{ Jaxb Error }}} 
+2022-09-05 14:08:14.533 ERROR main Main 38c03ac9-2033-49e1-842a-4f5a986b03c4 methodName=generateRectangleXML {{{ Jaxb Error }}} 
+2022-09-05 14:08:22.687 ERROR main Main ba1cef9c-e8da-4745-a25d-858c4875f511 methodName=generateRectangleXML {{{ Jaxb Error }}} 
