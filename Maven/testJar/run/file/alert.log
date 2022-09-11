@@ -1,0 +1,8 @@
+2022-09-11 15:35:39.472 ERROR main ge.ufc.utils.App b8478774-1dc4-4485-aa98-7b12c4d76aa1 methodName=generateCircleXML {{{ Error Jaxb }}} 
+2022-09-11 15:35:39.477 ERROR main ge.ufc.utils.App b8478774-1dc4-4485-aa98-7b12c4d76aa1 methodName=generateRectangleXML {{{ Jaxb Error }}} 
+2022-09-11 15:35:39.479 ERROR main ge.ufc.utils.App b8478774-1dc4-4485-aa98-7b12c4d76aa1 methodName=generateTriangleXML {{{ Jaxb Error }}} 
+2022-09-11 15:35:39.481 ERROR main ge.ufc.utils.App b8478774-1dc4-4485-aa98-7b12c4d76aa1 methodName=generateTriangleSchema {{{ Jaxb Error }}} 
+2022-09-11 15:36:20.090 ERROR main ge.ufc.utils.App b2034e19-abc2-45b9-9916-912b98b1136d methodName=generateCircleXML {{{ Error Jaxb }}} 
+2022-09-11 15:36:20.094 ERROR main ge.ufc.utils.App b2034e19-abc2-45b9-9916-912b98b1136d methodName=generateRectangleXML {{{ Jaxb Error }}} 
+2022-09-11 15:36:20.095 ERROR main ge.ufc.utils.App b2034e19-abc2-45b9-9916-912b98b1136d methodName=generateTriangleXML {{{ Jaxb Error }}} 
+2022-09-11 15:36:20.096 ERROR main ge.ufc.utils.App b2034e19-abc2-45b9-9916-912b98b1136d methodName=generateTriangleSchema {{{ Jaxb Error }}} 
