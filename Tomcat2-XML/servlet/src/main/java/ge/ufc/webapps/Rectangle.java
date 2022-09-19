@@ -1,9 +1,13 @@
 package ge.ufc.webapps;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Rectangle
 {
     private double width,length;
+    public Rectangle(){}
     public Rectangle(double width, double length)
     {
         this.width = width;
@@ -20,13 +24,14 @@ public class Rectangle
     public double getWidth() {
         return width;
     }
-
     public double getLength() {
         return length;
     }
+    @XmlElement
     public void setWidth(double width) {
         this.width = width;
     }
+    @XmlElement
     public void setLength(double length) {
         this.length = length;
     }
