@@ -1,8 +1,5 @@
 2022-10-02 20:17:25.896 INFO http-nio-8080-exec-147 ge.ufc.webapps.ws.PersonService  methodName=listPersons {{{ persons.xml send }}} 
 2022-10-02 20:17:25.907 TRACE http-nio-8080-exec-147 ge.ufc.webapps.ws.PersonService  methodName=listPersons {{{ [{ Giorgi, Katsadze, 33 years old, id=9024 }, { Giorgi, Katsadze, 33 years old, id=1 }, { Luka, Nemsitsveridze, 19 years old, id=2 }, { f, l, 4 years old, id=3 }, { Guram, Kashia, 35 years old, id=4 }, { Giorgi, Katsadze, 33 years old, id=100 }, { Giorgi, Katsadze, 33 years old, id=900 }, { Giorgi, Katsadze, 33 years old, id=902 }, { Giorgi, Katsadze, 33 years old, id=200 }] }}} 
-2022-10-02 20:54:06.982 ERROR http-nio-8080-exec-159 ge.ufc.webapps.ws.PersonService  methodName=readFromXMLFile {{{ Error: null }}} 
-2022-10-02 20:54:31.966 ERROR http-nio-8080-exec-160 ge.ufc.webapps.ws.PersonService  methodName=readFromXMLFile {{{ Error: null }}} 
-2022-10-02 20:54:48.887 ERROR http-nio-8080-exec-161 ge.ufc.webapps.ws.PersonService  methodName=readFromXMLFile {{{ Error: null }}} 
 2022-10-02 20:54:59.942 INFO http-nio-8080-exec-162 ge.ufc.webapps.ws.PersonService  methodName=listPersons {{{ persons.xml send }}} 
 2022-10-02 20:54:59.943 TRACE http-nio-8080-exec-162 ge.ufc.webapps.ws.PersonService  methodName=listPersons {{{ [{ Giorgi, Katsadze, 33 years old, id=1 }, { Luka, Nemsitsveridze, 19 years old, id=2 }, { Cristiano, Ronaldo, 37 years old, id=3 }, { Lionel, Messi, 35 years old, id=4 }, { Guram, Kashia, 35 years old, id=5 }] }}} 
 2022-10-02 20:56:05.044 INFO http-nio-8080-exec-164 ge.ufc.webapps.ws.PersonService  methodName=listPersons {{{ persons.xml send }}} 
