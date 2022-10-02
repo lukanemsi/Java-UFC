@@ -36,8 +36,10 @@ public class PersonService implements PersonServiceI
     @Override
     public Response getPerson(int id,String username,String password,@Context HttpServletRequest request)
     {
-        if(!checkAccess(username, password, request))
-            return Response.status(Response.Status.FORBIDDEN).entity("Access not allowed").build();
+        if(!checkIp(request))
+            return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
+        if(!checkAccess(username, password))
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
 
         Person person = personHashMap.get(id);
         if(person == null)
@@ -50,8 +52,10 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response addPerson(Person person,String username,String password,@Context HttpServletRequest request) {
-        if(!checkAccess(username, password, request))
-            return Response.status(Response.Status.FORBIDDEN).entity("Access not allowed").build();
+        if(!checkIp(request))
+            return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
+        if(!checkAccess(username, password))
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
 
         if(personHashMap.get(person.getId()) != null)
             return Response.status(Response.Status.CONFLICT).entity("person with this id already exists!").build();
@@ -69,8 +73,10 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response updatePerson(Person person,String username,String password,@Context HttpServletRequest request) {
-        if(!checkAccess(username, password, request))
-            return Response.status(Response.Status.FORBIDDEN).entity("Access not allowed").build();
+        if(!checkIp(request))
+            return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
+        if(!checkAccess(username, password))
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
         if(personHashMap.get(person.getId()) == null)
             return Response.status(Response.Status.NOT_FOUND).entity("Person with such id not found").build();
 
@@ -87,8 +93,10 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response deletePerson(int id,String username,String password,@Context HttpServletRequest request) {
-        if(!checkAccess(username, password, request))
-            return Response.status(Response.Status.FORBIDDEN).entity("Access not allowed").build();
+        if(!checkIp(request))
+            return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
+        if(!checkAccess(username, password))
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
        if(personHashMap.get(id) == null)
            return Response.status(Response.Status.NOT_FOUND).entity("Person with such id not found").build();
        Person person = personHashMap.remove(id);
@@ -102,8 +110,10 @@ public class PersonService implements PersonServiceI
     @Override
     public Response listPersons(String username,String password,@Context HttpServletRequest request)
     {
-        if(!checkAccess(username, password, request))
-            return Response.status(Response.Status.FORBIDDEN).entity("Access not allowed").build();
+        if(!checkIp(request))
+            return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
+        if(!checkAccess(username, password))
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
         logger.info("persons.xml send");
         logger.trace(persons);
         return Response.status(Response.Status.OK).entity(persons).build();
@@ -142,10 +152,13 @@ public class PersonService implements PersonServiceI
         return person.getFirstname() != null && person.getLastname() != null && person.getAge() != 0 && person.getId() != -1;
     }
 
-    private boolean checkAccess(String username,String password,HttpServletRequest request)
+    private boolean checkAccess(String username,String password)
     {
-        if(!user.validate(username,password))
-            return false;
+        return user.validate(username, password);
+    }
+
+    private boolean checkIp(HttpServletRequest request)
+    {
         List<String> ips = user.getAllowIps();
         return ips.stream().anyMatch(ip -> ip.equals(request.getRemoteAddr()));
     }
