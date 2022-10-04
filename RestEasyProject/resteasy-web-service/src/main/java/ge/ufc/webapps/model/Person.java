@@ -1,5 +1,8 @@
 package ge.ufc.webapps.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
@@ -22,9 +25,15 @@ public class Person
         this.lastname = lastname;
         this.age = age;
     }
+
     @Override
     public String toString() {
-        return "{ " + firstname + ", " + lastname + ", " + age + " years old, id=" + id + " }";
+        return "Person{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
     }
 
     public String getFirstname() {

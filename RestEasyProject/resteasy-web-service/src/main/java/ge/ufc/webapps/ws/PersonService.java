@@ -46,7 +46,7 @@ public class PersonService implements PersonServiceI
             return Response.status(Response.Status.NOT_FOUND).entity("person doesn't have such id").build();
 
         logger.info("person information send");
-        logger.trace(person);
+        logger.trace(persons);
         return Response.status(Response.Status.OK).entity(person).build();
     }
 
@@ -67,8 +67,8 @@ public class PersonService implements PersonServiceI
         persons.setPersonList(new ArrayList<>(personHashMap.values()));
         writeInXMLFile();
         logger.info("person added in persons.xml");
-        logger.trace(person);
-        return Response.status(Response.Status.OK).entity("Person: " + person.toString() + " added!").build();
+        logger.trace(persons);
+        return Response.status(Response.Status.OK).entity("Person added!").build();
     }
 
     @Override
@@ -87,7 +87,7 @@ public class PersonService implements PersonServiceI
         persons.setPersonList(new ArrayList<>(personHashMap.values()));
         writeInXMLFile();
         logger.info("person modified in persons.xml");
-        logger.trace(person);
+        logger.trace(persons);
         return Response.status(Response.Status.OK).entity("Person Modified").build();
     }
 
@@ -103,7 +103,7 @@ public class PersonService implements PersonServiceI
        persons.setPersonList(new ArrayList<>(personHashMap.values()));
        writeInXMLFile();
        logger.info("person deleted in persons.xml");
-       logger.trace(person);
+       logger.trace(persons);
        return Response.status(Response.Status.OK).entity("Person Deleted").build();
     }
 

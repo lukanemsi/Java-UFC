@@ -1,4 +1,7 @@
 package ge.ufc.webapps.model;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -18,7 +21,8 @@ public class Persons {
     }
 
     @Override
-    public String toString() {
-        return personList.toString();
+    public String toString(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 }
