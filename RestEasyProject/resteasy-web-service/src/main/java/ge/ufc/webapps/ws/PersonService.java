@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+// add,update,delete komandebit vabruneb teqsts warmatebit shesrulebis shemtxvevashi
 public class PersonService implements PersonServiceI
 {
     private static final Logger logger = LogManager.getLogger(PersonService.class);
@@ -39,6 +40,8 @@ public class PersonService implements PersonServiceI
     @Override
     public Response getPerson(int id,String username,String password,@Context HttpServletRequest request)
     {
+        if (!validateConfigFile())
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("config file error").build();
         if(!checkIp(request))
             return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
         if(!checkAccess(username, password))
@@ -56,6 +59,8 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response addPerson(Person person,String username,String password,@Context HttpServletRequest request) {
+        if (!validateConfigFile())
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("config file error").build();
         if(!checkIp(request))
             return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
         if(!checkAccess(username, password))
@@ -84,6 +89,8 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response updatePerson(Person person,String username,String password,@Context HttpServletRequest request) {
+        if (!validateConfigFile())
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("config file error").build();
         if(!checkIp(request))
             return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
         if(!checkAccess(username, password))
@@ -111,6 +118,8 @@ public class PersonService implements PersonServiceI
 
     @Override
     public Response deletePerson(int id,String username,String password,@Context HttpServletRequest request) {
+        if (!validateConfigFile())
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("config file error").build();
         if(!checkIp(request))
             return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
         if(!checkAccess(username, password))
@@ -135,6 +144,8 @@ public class PersonService implements PersonServiceI
     @Override
     public Response listPersons(String username,String password,@Context HttpServletRequest request)
     {
+        if (!validateConfigFile())
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("config file error").build();
         if(!checkIp(request))
             return Response.status(Response.Status.FORBIDDEN).entity("Ip not allowed").build();
         if(!checkAccess(username, password))
@@ -162,6 +173,8 @@ public class PersonService implements PersonServiceI
         persons.getPersonList().forEach(p -> personHashMap.put(p.getId(),p));
     }
 
+    private boolean validateConfigFile()
+    {return !user.getAllowIps().get(0).isEmpty() && !user.getPath().isEmpty() && !user.getPassword().isEmpty() && !user.getUsername().isEmpty();}
     private boolean validatePerson(Person person) {return person.getFirstname() != null && person.getLastname() != null && person.getAge() != 0 && person.getId() != -1;}
     private boolean checkAccess(String username,String password)
     {

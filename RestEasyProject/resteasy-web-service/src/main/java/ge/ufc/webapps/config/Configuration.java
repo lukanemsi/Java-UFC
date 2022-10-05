@@ -43,6 +43,14 @@ public class Configuration
             return path;
         }
 
+        public String getPassword() {
+            return password;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
         public List<String> getAllowIps() {
             return allowIps;
         }
@@ -83,8 +91,8 @@ public class Configuration
         String name = properties.getProperty("username","");
         String pass = properties.getProperty("password","");
         user = new User(pass,name);
-        user.setPath(properties.getProperty("database"));
-        String api = properties.getProperty("allowed_ip");
+        user.setPath(properties.getProperty("database",""));
+        String api = properties.getProperty("allowed_ip","");
         if(api.contains(";"))
         {
             List<String> apis = Arrays.stream(api.split(";")).collect(Collectors.toList());
@@ -100,4 +108,5 @@ public class Configuration
     {
         return user;
     }
+
 }
