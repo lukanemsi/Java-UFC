@@ -18,18 +18,18 @@ public interface PersonServiceI
     @POST
     @Path("/addPerson")
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Produces(MediaType.TEXT_HTML)
+    @Produces({MediaType.TEXT_HTML,MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     Response addPerson(Person person,@HeaderParam("username") String username, @HeaderParam("password") String password,@Context HttpServletRequest request);
 
     @PUT
     @Path("/updatePerson")
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Produces(MediaType.TEXT_HTML)
+    @Produces({MediaType.TEXT_HTML,MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     Response updatePerson(Person person,@HeaderParam("username") String username, @HeaderParam("password") String password,@Context HttpServletRequest request);
 
     @DELETE
     @Path("/deletePerson/{id}")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces({MediaType.TEXT_HTML,MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     Response deletePerson(@PathParam("id") int id,@HeaderParam("username") String username, @HeaderParam("password") String password,@Context HttpServletRequest request);
 
     @GET
