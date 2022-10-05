@@ -22,15 +22,18 @@ public class PersonService implements PersonServiceI
     private final Map<Integer,Person> personHashMap = new HashMap<>();
     private final Configuration.User user;
     private Persons persons;
+
     public PersonService()
     {
         try {
             user = Configuration.getConfiguration().getUser();
-        } catch (IOException e) {
+            readFromXMLFile();
+        }
+        catch (IOException | JAXBException e)
+        {
             logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
-        readFromXMLFile();
     }
 
     @Override
@@ -46,7 +49,8 @@ public class PersonService implements PersonServiceI
             return Response.status(Response.Status.NOT_FOUND).entity("person doesn't have such id").build();
 
         logger.info("person information send");
-        logger.trace(persons);
+        logger.trace(username + ", " + password  + ", " + request.getRemoteAddr());
+        logger.trace(persons.json());
         return Response.status(Response.Status.OK).entity(person).build();
     }
 
@@ -65,9 +69,16 @@ public class PersonService implements PersonServiceI
 
         personHashMap.put(person.getId(), person);
         persons.setPersonList(new ArrayList<>(personHashMap.values()));
-        writeInXMLFile();
+        try {
+            writeInXMLFile();
+        } catch (JAXBException e) {
+            logger.error(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("jaxb error").build();
+        }
         logger.info("person added in persons.xml");
-        logger.trace(persons);
+        logger.trace(username + ", " + password  + ", " + request.getRemoteAddr());
+        logger.trace(person.json());
+        logger.trace(persons.json());
         return Response.status(Response.Status.OK).entity("Person added!").build();
     }
 
@@ -85,9 +96,16 @@ public class PersonService implements PersonServiceI
 
         personHashMap.put(person.getId(), person);
         persons.setPersonList(new ArrayList<>(personHashMap.values()));
-        writeInXMLFile();
+        try {
+            writeInXMLFile();
+        } catch (JAXBException e) {
+            logger.error(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("jaxb error").build();
+        }
         logger.info("person modified in persons.xml");
-        logger.trace(persons);
+        logger.trace(username + ", " + password  + ", " + request.getRemoteAddr());
+        logger.trace(person.json());
+        logger.trace(persons.json());
         return Response.status(Response.Status.OK).entity("Person Modified").build();
     }
 
@@ -101,9 +119,16 @@ public class PersonService implements PersonServiceI
            return Response.status(Response.Status.NOT_FOUND).entity("Person with such id not found").build();
        Person person = personHashMap.remove(id);
        persons.setPersonList(new ArrayList<>(personHashMap.values()));
-       writeInXMLFile();
+        try {
+            writeInXMLFile();
+        } catch (JAXBException e) {
+            logger.error(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("jaxb error").build();
+        }
        logger.info("person deleted in persons.xml");
-       logger.trace(persons);
+        logger.trace(username + ", " + password  + ", " + request.getRemoteAddr());
+        logger.trace(person.json());
+       logger.trace(persons.json());
        return Response.status(Response.Status.OK).entity("Person Deleted").build();
     }
 
@@ -115,48 +140,33 @@ public class PersonService implements PersonServiceI
         if(!checkAccess(username, password))
             return Response.status(Response.Status.UNAUTHORIZED).entity("Access not allowed").build();
         logger.info("persons.xml send");
-        logger.trace(persons);
+        logger.trace(username + ", " + password  + ", " + request.getRemoteAddr());
+        logger.trace(persons.json());
         return Response.status(Response.Status.OK).entity(persons).build();
     }
 
-    private void writeInXMLFile()
-    {
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
-            Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.marshal(persons,new File(user.getPath()));
-        } catch (JAXBException e) {
-            logger.error(e.getMessage());
-            throw new RuntimeException(e);
-        }
+    private void writeInXMLFile() throws JAXBException {
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.marshal(persons,new File(user.getPath()));
 
     }
 
-    private void readFromXMLFile()
-    {
-        try {
-            String path = user.getPath();
-            JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            persons = (Persons) unmarshaller.unmarshal(new File(path));
-            persons.getPersonList().forEach(p -> personHashMap.put(p.getId(),p));
-        } catch (JAXBException e) {
-            logger.error("Error: " + e.getMessage());
-            throw new RuntimeException(e);
-        }
+    private void readFromXMLFile() throws JAXBException {
+        String path = user.getPath();
+        JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        persons = (Persons) unmarshaller.unmarshal(new File(path));
+        persons.getPersonList().forEach(p -> personHashMap.put(p.getId(),p));
     }
 
-    private boolean validatePerson(Person person)
-    {
-        return person.getFirstname() != null && person.getLastname() != null && person.getAge() != 0 && person.getId() != -1;
-    }
-
+    private boolean validatePerson(Person person) {return person.getFirstname() != null && person.getLastname() != null && person.getAge() != 0 && person.getId() != -1;}
     private boolean checkAccess(String username,String password)
     {
         return user.validate(username, password);
     }
-
     private boolean checkIp(HttpServletRequest request)
     {
         List<String> ips = user.getAllowIps();

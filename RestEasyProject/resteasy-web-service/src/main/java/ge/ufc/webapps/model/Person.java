@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "person", propOrder = { "firstname", "lastname", "age" })
 public class Person
 {
+    private static final Gson gson = new GsonBuilder().create();
     @XmlElement(name = "first-name")
     protected String firstname;
     @XmlElement(name = "last-name")
@@ -25,7 +26,6 @@ public class Person
         this.lastname = lastname;
         this.age = age;
     }
-
     @Override
     public String toString() {
         return "Person{" +
@@ -35,7 +35,10 @@ public class Person
                 ", id=" + id +
                 '}';
     }
-
+    public String json()
+    {
+        return gson.toJson(this);
+    }
     public String getFirstname() {
         return firstname;
     }
