@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons>
+    <person id="1">
+        <first-name>Giorgi</first-name>
+        <last-name>Katsadze</last-name>
+        <age>33</age>
+    </person>
+    <person id="2">
+        <first-name>Luka</first-name>
+        <last-name>Nemsiwveridze</last-name>
+        <age>19</age>
+    </person>
+    <person id="3">
+        <first-name>Cristiano</first-name>
+        <last-name>Ronaldo</last-name>
+        <age>37</age>
+    </person>
+    <person id="4">
+        <first-name>Lionel</first-name>
+        <last-name>Messi</last-name>
+        <age>35</age>
+    </person>
+    <person id="5">
+        <first-name>Guram</first-name>
+        <last-name>Kashia</last-name>
+        <age>35</age>
+    </person>
+</persons>

@@ -1,0 +1,16 @@
+package ge.ufc.webapps.faults;
+
+import javax.xml.ws.WebFault;
+
+@WebFault
+public class PersonNotFoundException extends Exception{
+
+    private static final long serialVersionUID = 1L;
+
+    public PersonNotFoundException() {
+    }
+
+    public PersonNotFoundException(String message) {
+        super(message);
+    }
+}
