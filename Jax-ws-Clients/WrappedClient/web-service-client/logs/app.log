@@ -1,0 +1,203 @@
+2022-10-17 16:31:42.974 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:GetPerson xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <ID>1</ID>
+    </ns2:GetPerson>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.544 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:GetPersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <GetPersonResult id="1">
+        <first-name>Giorgi</first-name>
+        <last-name>Katsadze</last-name>
+        <age>33</age>
+      </GetPersonResult>
+    </ns2:GetPersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.594 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:UpdatePerson xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <Person id="6">
+        <first-name>Giorgi</first-name>
+        <last-name>G</last-name>
+        <age>35</age>
+      </Person>
+    </ns2:UpdatePerson>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.639 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:UpdatePersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <UpdatePersonResult>true</UpdatePersonResult>
+    </ns2:UpdatePersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.648 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:AddPerson xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <Person id="7">
+        <first-name>new Person</first-name>
+        <last-name>added</last-name>
+        <age>10</age>
+      </Person>
+    </ns2:AddPerson>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.674 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:AddPersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <return>true</return>
+    </ns2:AddPersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.684 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:ListPerson xmlns:ns2="http://ws.webapps.ufc.ge/"/>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.714 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:ListPersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <ListPerson id="1">
+        <first-name>Giorgi</first-name>
+        <last-name>Katsadze</last-name>
+        <age>33</age>
+      </ListPerson>
+      <ListPerson id="2">
+        <first-name>Luka</first-name>
+        <last-name>Nemsiwveridze</last-name>
+        <age>19</age>
+      </ListPerson>
+      <ListPerson id="3">
+        <first-name>Cristiano</first-name>
+        <last-name>Ronaldo</last-name>
+        <age>37</age>
+      </ListPerson>
+      <ListPerson id="4">
+        <first-name>Lionel</first-name>
+        <last-name>Messi</last-name>
+        <age>35</age>
+      </ListPerson>
+      <ListPerson id="5">
+        <first-name>Guram</first-name>
+        <last-name>Kashia</last-name>
+        <age>35</age>
+      </ListPerson>
+      <ListPerson id="6">
+        <first-name>Giorgi</first-name>
+        <last-name>G</last-name>
+        <age>35</age>
+      </ListPerson>
+      <ListPerson id="7">
+        <first-name>new Person</first-name>
+        <last-name>added</last-name>
+        <age>10</age>
+      </ListPerson>
+    </ns2:ListPersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.730 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:DeletePerson xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <ID>7</ID>
+    </ns2:DeletePerson>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.764 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:DeletePersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <DeletePersonResult>true</DeletePersonResult>
+    </ns2:DeletePersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.784 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP request sent: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:ListPerson xmlns:ns2="http://ws.webapps.ufc.ge/"/>
+  </S:Body>
+</S:Envelope>
+ }}} 
+2022-10-17 16:31:43.803 INFO main ge.ufc.webservices.handler.SoapHandler  methodName=handleMessage {{{ SOAP response received: 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <S:Body>
+    <ns2:ListPersonResponse xmlns:ns2="http://ws.webapps.ufc.ge/">
+      <ListPerson id="1">
+        <first-name>Giorgi</first-name>
+        <last-name>Katsadze</last-name>
+        <age>33</age>
+      </ListPerson>
+      <ListPerson id="2">
+        <first-name>Luka</first-name>
+        <last-name>Nemsiwveridze</last-name>
+        <age>19</age>
+      </ListPerson>
+      <ListPerson id="3">
+        <first-name>Cristiano</first-name>
+        <last-name>Ronaldo</last-name>
+        <age>37</age>
+      </ListPerson>
+      <ListPerson id="4">
+        <first-name>Lionel</first-name>
+        <last-name>Messi</last-name>
+        <age>35</age>
+      </ListPerson>
+      <ListPerson id="5">
+        <first-name>Guram</first-name>
+        <last-name>Kashia</last-name>
+        <age>35</age>
+      </ListPerson>
+      <ListPerson id="6">
+        <first-name>Giorgi</first-name>
+        <last-name>G</last-name>
+        <age>35</age>
+      </ListPerson>
+    </ns2:ListPersonResponse>
+  </S:Body>
+</S:Envelope>
+ }}} 
